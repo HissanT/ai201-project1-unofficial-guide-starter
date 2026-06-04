@@ -1,0 +1,24 @@
+Source title: Rate My Professor reviews for Ole Forsberg
+Source type: RateMyProfessor reviews
+URL: https://www.ratemyprofessors.com/professor/2676607
+
+Page title:
+Rate My Professor reviews for Ole Forsberg
+
+Professor summary:
+Name: Ole Forsberg
+Department: Math/Data Science
+Overall rating: 4.6
+Average difficulty: 3.2
+Would take again: 100%
+
+Review text:
+- Course: MATH145. Quality: 5.0. Difficulty: 4.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: B. Review: The reviewer says Forsberg is great and understanding. Even though the reviewer struggled with math, they earned a good grade. Tests are difficult, but he adds small Pokemon images to tests to help morale. Tags: gives good feedback, lots of homework, helpful.
+
+- Course: STAT200. Quality: 5.0. Difficulty: 2.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: A. Review: The reviewer describes him as kind and good at teaching difficult material. His intense organization seemed overwhelming at first, but it became helpful because expectations and schedules were clear. Tags: participation matters, group projects, accessible outside class, helpful.
+
+- Course: MATH145. Quality: 4.0. Difficulty: 3.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: A-. Review: The reviewer says he was enthusiastic. The class had a midterm, a final, Mathematica projects, medium-to-hard tests, extra credit, and homework that included reading or WebWork. He answers emails when students have concerns. Tags: extra credit, caring, accessible outside class, helpful.
+
+- Course: MATH121. Quality: 4.0. Difficulty: 3.0. For credit: yes. Attendance: not mandatory. Would take again: yes. Grade: A. Review: The reviewer says this is a basic math class. Students without algebra or precalculus might struggle, but students coming from high school may find it manageable. Forsberg is described as nice, dry-humored, sometimes funny, and overall not a bad professor. Tags: gives good feedback, lecture heavy, accessible outside class, helpful.
+
+- Course: MATH175. Quality: 5.0. Difficulty: 4.0. For credit: yes. Attendance: not mandatory. Would take again: yes. Grade: A. Online class: yes. Review: The reviewer says Forsberg is kind, helpful, open to questions, and friendly. Tags: gives good feedback, lots of homework, accessible outside class.

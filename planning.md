@@ -11,6 +11,14 @@
 
 <!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
 
+ This project focuses on student-generated knowledge about Knox College, including professor reviews, computer science
+  experiences, financial aid concerns, campus employment, Galesburg, and overall student life. This information is
+  valuable because official college websites usually describe programs, costs, and campus life in polished marketing
+  language, but they do not capture what students and alumni actually experienced. The useful details are scattered
+  across Reddit threads, Rate My Professor reviews, and Yelp comments, making them hard to search in one place. The
+  Unofficial Guide brings those informal sources together so users can ask plain-language questions and get grounded
+  answers with citations.
+
 ---
 
 ## Documents
@@ -18,18 +26,18 @@
 <!-- List your specific sources: URLs, subreddit names, forum threads, or file descriptions.
      Aim for at least 10 sources that together cover different subtopics or perspectives within your domain. -->
 
-| # | Source | Description | URL or location |
-|---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| # | Source | Type | URL or file path |
+|---|--------|------|-----------------|
+| 1 | Thread about honest opinions about Knox | Reddit Thread | https://www.reddit.com/r/KnoxCollege/comments/1atsaen/honest_opinion/ |
+| 2 | Rate My Professor about Shengting Cao| RateMyProfessor review | https://www.ratemyprofessors.com/professor/3136006 |
+| 3 | Rate My Professor about Jaime Spacco| RateMyProfessor review | https://www.ratemyprofessors.com/professor/1988553 |
+| 4 | Rate My Professor about Andrew Leahy| RateMyProfessor review | https://www.ratemyprofessors.com/professor/230966 |
+| 5 | Rate My Professor about Ole Forsberg| RateMyProfessor review | https://www.ratemyprofessors.com/professor/2676607 |
+| 6 | Rate My Professor about David Bunde| RateMyProfessor review | https://www.ratemyprofessors.com/professor/1090694 |
+| 7 | Thread about getting into Knox | Reddit Thread | https://www.reddit.com/r/KnoxCollege/comments/18zyrl8/what_do_u_think/ |
+| 8 | Thread about whether I should commit to Knox | Reddit Thread | https://www.reddit.com/r/KnoxCollege/comments/1b4x1mi/please_help/ |
+| 9 | Thread about location and college | Reddit Thread | https://www.reddit.com/r/illinois/comments/1qh4cy9/knox_college_in_galesburg/ |
+| 10 | Article on how is Knox | Yelp reviews | https://www.yelp.com/biz/knox-college-galesburg |
 
 ---
 
@@ -40,11 +48,14 @@
      numbers fit the structure of your documents.
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
-**Chunk size:**
+**Chunk size:** One review or comment paragraph per chunk, targeting about 400 characters. Longer comments will be
+  split by paragraph if they exceed that range.
 
-**Overlap:**
+**Overlap:** Around 50 characters for shorter reviews or comments. Around 100 characters of overlap only when splitting
+  longer comments.
 
-**Reasoning:**
+**Reasoning:** My corpus is mostly short student reviews, Reddit comments, and Yelp review paragraphs, where each
+  chunk usually contains one focused opinion or experience. 400 character should keep the retrievel precise for most questions. I will still split on natural boundaries so the chunking strategy preserves meaning instead of cutting every fixed number of characters. One important note is to not make every chunk exactly 300-500 characters. Use that as a target/limit. If a professor review is 220 characters but complete, keep it whole. If a Reddit bullet is 650 characters but still one coherent idea, either keep it or split at a sentence boundary.
 
 ---
 
@@ -56,11 +67,11 @@
      would you weigh in choosing a different embedding model — context length, multilingual
      support, accuracy on domain-specific text, latency? -->
 
-**Embedding model:**
+**Embedding model:** all-MiniLM-L6-v2
 
-**Top-k:**
+**Top-k:** top-3
 
-**Production tradeoff reflection:**
+**Production tradeoff reflection:**  If cost was not a constraint, I would compare embedding models based on accuracy, context length. Accuracy would matter most because my documents are informal student opinions with slang, short reviews, and college-specific details, so the model needs to match questions to meaning rather than exact keywords. Context length would matter for longer Reddit or Yelp comments, but most of my chunks are short, so it would be less important than retrieval quality.
 
 ---
 
@@ -73,11 +84,11 @@
 
 | # | Question | Expected answer |
 |---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| 1 | If an international student has about a $15,000 EFC, would Knox be affordable without extra work? | Not fully. Several people put costs at around $17,000 to $21,000.|
+| 2 | Is Knox’s CS program described more as a strong technical/pre-professional program or as part of a broader liberal arts experience?| More as part of a broader liberal arts experience. Some CS alumni report good outcomes, internships, and software jobs, but others say the CS department is only fine or lacks innovation. The stronger theme is that Knox teaches critical thinking, learning how to learn, and interdisciplinary exposure.|
+| 3 |  What kind of paid work do you think is realistic for a first-year international student at Knox? |  normal on-campus jobs are more realistic than major-related internships after the first year. One estimate mentions around 10-15 hours per week at Illinois minimum wage, while summer or research work may be possible but not guaranteed.|
+| 4 | Do student/alumni sources describe Galesburg as a major advantage, major drawback, or mixed factor for Knox| Mixed, but often a drawback depending on the student. Some describe Galesburg as boring, small, or rough, while others say it has useful stores, restaurants, Amtrak access, and areal small-town community. Most sources frame campus as the center of student life rather than Galesburg itself|
+| 5 | Which professor appears more consistently helpful for CS students: Jaime Spacco or David Bunde, and what is the difference in how students describe them? | Both are described as helpful, but in different ways. Spacco is described as engaging, caring, inspirational, and sometimes disorganized, with easier or less structured classes. Bunde is described as helpful, practical, knowledgeable, and strong for labs/projects, though sometimes busy|
 
 ---
 
@@ -87,9 +98,9 @@
      Consider: noisy or inconsistent documents, missing source attribution, off-topic
      retrieval, chunks that split key information across boundaries. -->
 
-1.
+1. Less information available so a lot of concerns could be left unanswered or the answers may not be related.
 
-2.
+2. Chunk seperation could lead to unrelated information leaking through.
 
 ---
 
@@ -100,6 +111,29 @@
      Label each stage with the tool or library you're using.
      You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
      You'll use this diagram as context when prompting AI tools to implement each stage. -->
+
+documents/*.txt
+     |
+     v
+[Document Ingestion]
+Python file reader + basic text cleanup
+     |
+     v
+[Chunking]
+Custom review/comment chunk_text()
+     |
+     v
+[Embedding + Vector Store]
+sentence-transformers: all-MiniLM-L6-v2
+ChromaDB collection
+     |
+     v
+[Retrieval]
+ChromaDB similarity search, top-3 chunks
+     |
+     v
+[Generation]
+Groq LLM API, grounded answer with source citations
 
 ---
 

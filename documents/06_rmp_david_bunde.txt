@@ -1,0 +1,24 @@
+Source title: Rate My Professor reviews for David Bunde
+Source type: RateMyProfessor reviews
+URL: https://www.ratemyprofessors.com/professor/1090694
+
+Page title:
+Rate My Professor reviews for David Bunde
+
+Professor summary:
+Name: David Bunde
+Department: Computer Science
+Overall rating: 4.6
+Average difficulty: 3.0
+Would take again: 100%
+
+Review text:
+- Course: Several. Quality: 5.0. Difficulty: 3.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: A+. Review: The reviewer says Bunde is a very good professor who teaches important classes. Tags: clear grading criteria, gives good feedback, accessible outside class, helpful.
+
+- Course: CS142. Quality: 5.0. Difficulty: 3.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: A. Review: The reviewer says Bunde is very good, labs are helpful, and students learn many new things. He is willing to help but often busy. Tags: gives good feedback, respected, clear grading criteria, helpful.
+
+- Course: CS141. Quality: 4.5. Difficulty: 2.0. Review: The reviewer describes Bunde as extremely helpful and easy to access for help. He helped the student with an assignment late at night, and the student did well on the exam the next day. Tags: helpful.
+
+- Course: Several. Quality: 4.0. Difficulty: 4.0. Review: The reviewer says projects are interesting and build over the term, but sometimes lack depth. Bunde gives good explanations and is knowledgeable. Tags: helpful.
+
+- Course: CS201. Quality: 4.5. Difficulty: 3.0. Review: The reviewer says Bunde is extremely helpful, especially in small classes. Students should expect some homework. His approach is described as practical for the computer science industry.

@@ -1,0 +1,18 @@
+Source title: Rate My Professor reviews for Shengting Cao
+Source type: RateMyProfessor reviews
+URL: https://www.ratemyprofessors.com/professor/3136006
+
+Page title:
+Rate My Professor reviews for Shengting Cao
+
+Professor summary:
+Name: Shengting Cao
+Department: Computer Science
+Overall rating: 3.0
+Average difficulty: 3.0
+Would take again: 50%
+
+Review text:
+- Course: CS214. Quality: 5.0. Difficulty: 3.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: A. Online class: yes. Review: The reviewer said the class is project-based and that students need to follow up to get a good grade. Tags: helpful.
+
+- Course: CS214. Quality: 1.0. Difficulty: 3.0. For credit: yes. Attendance: mandatory. Grade: A. Review: The reviewer described Cao as a new professor. Tags: participation matters, group projects, lots of homework.

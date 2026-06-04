@@ -1,0 +1,24 @@
+Source title: Rate My Professor reviews for Jaime Spacco
+Source type: RateMyProfessor reviews
+URL: https://www.ratemyprofessors.com/professor/1988553
+
+Page title:
+Rate My Professor reviews for Jaime Spacco
+
+Professor summary:
+Name: Jaime Spacco
+Department: Computer Science
+Overall rating: 4.7
+Average difficulty: 2.2
+Would take again: 100%
+
+Review text:
+- Course: CS141. Quality: 5.0. Difficulty: 2.0. For credit: yes. Attendance: not mandatory. Would take again: yes. Grade: A+. Review: Lovely professor. Used a John Pork reference. Tags: extra credit, inspirational, respected, helpful.
+
+- Course: Many. Quality: 5.0. Difficulty: 1.0. For credit: yes. Attendance: not mandatory. Would take again: yes. Grade: A. Review: Fantastic professor. A little disorganized, but there are not many assignments and the class is not test-heavy. He is helpful when students have questions and engaging while teaching. Tags: participation matters, hilarious, accessible outside class, helpful.
+
+- Course: CS317. Quality: 5.0. Difficulty: 2.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: A+. Review: Spacco is a passionate teacher who knows a lot about sorting algorithms but is less organized with class structure. His classes are usually easy because he moves back due dates and sometimes forgets to give assignments. He still inspires students to learn and explore computer science. Tags: participation matters, graded by few things, hilarious, helpful.
+
+- Course: IDS399. Quality: 5.0. Difficulty: 2.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: not sure yet. Review: Jaime was amazing in Start-Up Term. The reviewer describes him as sweet, knowledgeable, and helpful to CS, business, and design teams. Tags: accessible outside class, hilarious, caring, helpful.
+
+- Course: CS317. Quality: 4.0. Difficulty: 2.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: A. Review: Spacco cares deeply about his students and works hard to become a better professor. Classes can be unorganized, especially higher-level classes, but he provides many useful resources outside class. The reviewer says he is perfect for intro classes. Tags: accessible outside class, caring, group projects.

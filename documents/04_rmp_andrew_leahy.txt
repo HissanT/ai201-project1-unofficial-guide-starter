@@ -1,0 +1,24 @@
+Source title: Rate My Professor reviews for Andrew Leahy
+Source type: RateMyProfessor reviews
+URL: https://www.ratemyprofessors.com/professor/230966
+
+Page title:
+Rate My Professor reviews for Andrew Leahy
+
+Professor summary:
+Name: Andrew Leahy
+Department: Math/Data Science
+Overall rating: 4.1
+Average difficulty: 3.4
+Would take again: 50%
+
+Review text:
+- Course: LOTS. Quality: 1.0. Difficulty: 5.0. For credit: yes. Attendance: mandatory. Grade: B. Review: The reviewer says Leahy did not know enough about CS141 while teaching it because he is a math professor. They describe him as unnecessarily strict, homework-heavy, and rude. Tags: tough grader, lots of homework, lecture heavy, helpful.
+
+- Course: MATH175. Quality: 5.0. Difficulty: 4.0. For credit: yes. Attendance: not mandatory. Would take again: yes. Grade: A. Review: The reviewer describes him as a nice professor and says the class is easy if students show up. The class used a flipped format with lecture videos and WebWork homework, plus weekly quizzes, two midterms, and a final. The reviewer says there were many proofs and that Leahy was better than another discrete math professor. Tags: lots of homework, test heavy, helpful.
+
+- Course: MATH142. Quality: 2.0. Difficulty: 3.0. For credit: yes. Attendance: mandatory. Grade: A-. Review: The reviewer says lectures were assigned as PDFs or long videos before class, and class time was mostly for questions. They felt he often did not fully answer questions and left students to figure things out. Tags: lots of homework, helpful.
+
+- Course: MATH151. Quality: 5.0. Difficulty: 3.0. For credit: yes. Attendance: mandatory. Would take again: yes. Grade: A. Review: The reviewer says he is a great professor and everyone should take him at least once. Tags: lots of homework, caring, helpful.
+
+- Course: MATH121. Quality: 4.5. Difficulty: 2.0. Attendance: mandatory. Grade: A. Review: The reviewer has not taken a higher-level class with him, but says his 100-level classes are easy to pass if students do the homework and ask questions. They also say he is willing to help.

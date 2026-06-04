@@ -14,6 +14,13 @@
      Example: "Student reviews of CS professors at [university] — useful because official
      course descriptions don't reflect teaching style, exam difficulty, or workload." -->
 
+ This project focuses on student-generated knowledge about Knox College, including professor reviews, computer science
+  experiences, financial aid concerns, campus employment, Galesburg, and overall student life. This information is
+  valuable because official college websites usually describe programs, costs, and campus life in polished marketing
+  language, but they do not capture what students and alumni actually experienced. The useful details are scattered
+  across Reddit threads, Rate My Professor reviews, and Yelp comments, making them hard to search in one place. The
+  Unofficial Guide brings those informal sources together so users can ask plain-language questions and get grounded
+  answers with citations.
 ---
 
 ## Document Sources
@@ -24,16 +31,16 @@
 
 | # | Source | Type | URL or file path |
 |---|--------|------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 1 | Thread about honest opinions about Knox | Reddit Thread | https://www.reddit.com/r/KnoxCollege/comments/1atsaen/honest_opinion/ |
+| 2 | Rate My Professor about Shengting Cao| RateMyProfessor review | https://www.ratemyprofessors.com/professor/3136006 |
+| 3 | Rate My Professor about Jaime Spacco| RateMyProfessor review | https://www.ratemyprofessors.com/professor/1988553 |
+| 4 | Rate My Professor about Andrew Leahy| RateMyProfessor review | https://www.ratemyprofessors.com/professor/230966 |
+| 5 | Rate My Professor about Ole Forsberg| RateMyProfessor review | https://www.ratemyprofessors.com/professor/2676607 |
+| 6 | Rate My Professor about David Bunde| RateMyProfessor review | https://www.ratemyprofessors.com/professor/1090694 |
+| 7 | Thread about getting into Knox | Reddit Thread | https://www.reddit.com/r/KnoxCollege/comments/18zyrl8/what_do_u_think/ |
+| 8 | Thread about whether I should commit to Knox | Reddit Thread | https://www.reddit.com/r/KnoxCollege/comments/1b4x1mi/please_help/ |
+| 9 | Thread about location and college | Reddit Thread | https://www.reddit.com/r/illinois/comments/1qh4cy9/knox_college_in_galesburg/ |
+| 10 | Article on how is Knox | Yelp reviews | https://www.yelp.com/biz/knox-college-galesburg |
 
 ---
 
