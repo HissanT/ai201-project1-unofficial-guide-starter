@@ -7,6 +7,24 @@
 
 ---
 
+## Embedding and Retrieval Usage
+
+Build or rebuild the persistent ChromaDB collection from `chunks.jsonl`:
+
+```bash
+python embed_retrieve.py index
+```
+
+Retrieve the five most relevant chunks with source attribution:
+
+```bash
+python embed_retrieve.py query "What do students say about Galesburg?"
+```
+
+Use `--top-k` to tune the result count during evaluation.
+
+---
+
 ## Domain
 
 <!-- What topic or category of knowledge does your system cover?
@@ -73,7 +91,17 @@
 
 **Model used:**
 
+`all-MiniLM-L6-v2` from `sentence-transformers`. It runs locally without an
+API key and provides a practical balance of semantic retrieval quality, model
+size, and latency for short English student reviews and comments.
+
 **Production tradeoff reflection:**
+
+For a production system, I would compare stronger local and hosted models on
+retrieval accuracy for informal language, latency, context length, multilingual
+coverage, privacy, and operating cost. This corpus is mostly short English
+text, so accuracy on slang and college-specific language matters more than a
+very large context window.
 
 ---
 

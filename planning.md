@@ -69,7 +69,7 @@
 
 **Embedding model:** all-MiniLM-L6-v2
 
-**Top-k:** top-3
+**Top-k:** top-5 initially, with tuning based on evaluation results
 
 **Production tradeoff reflection:**  If cost was not a constraint, I would compare embedding models based on accuracy, context length, latency, and multilingual support. Accuracy would matter most because my documents are informal student opinions with slang, short reviews, and college-specific details, so the model needs to match questions to meaning rather than exact keywords. Context length would matter for longer Reddit or Yelp comments, but most of my chunks are short, so it would be less important than retrieval quality. Latency would matter because real users expect fast answers, and multilingual support could matter for international students even though my current sources are mostly English.
 
@@ -131,7 +131,7 @@ ChromaDB collection
      |
      v
 [Retrieval]
-ChromaDB similarity search, top-3 chunks
+ChromaDB cosine similarity search, top-5 chunks initially
      |
      v
 [Generation]
@@ -153,6 +153,6 @@ Groq LLM API, grounded answer with source citations
 
 **Milestone 3 — Ingestion and chunking:** I will use ChatGPT or Claude to help implement the Python ingestion and `chunk_text()` functions. I will give the AI the Documents, Chunking Strategy, and Architecture sections from this planning.md, plus examples from the cleaned `documents/*.txt` files. I expect it to produce code that reads each `.txt` file, extracts source title/source type/URL metadata, removes empty lines, and chunks by review/comment paragraph with a 400 character target and 0 or 50-100 character overlap depending on length. I will verify it by printing the chunk count, checking several chunks manually, and confirming chunks still include useful metadata like source title, professor name, course name, or URL.
 
-**Milestone 4 — Embedding and retrieval:** I will use ChatGPT or Claude to help implement embeddings and ChromaDB storage. I will give the AI the Retrieval Approach and Architecture sections, including the model name `all-MiniLM-L6-v2`, `sentence-transformers`, `ChromaDB`, and `top-k = 3`. I expect it to produce code that embeds each chunk, stores the chunk text and metadata in a ChromaDB collection, and retrieves the top 3 chunks for a query. I will verify it by running my five evaluation questions and checking whether the retrieved chunks come from the expected sources.
+**Milestone 4 — Embedding and retrieval:** I will use ChatGPT or Claude to help implement embeddings and ChromaDB storage. I will give the AI the Retrieval Approach and Architecture sections, including the model name `all-MiniLM-L6-v2`, `sentence-transformers`, `ChromaDB`, and an initial `top-k = 5`. I expect it to produce code that embeds each chunk, stores the chunk text and source metadata in a ChromaDB collection, and retrieves the top 5 chunks for a query. I will verify it by running my five evaluation questions and checking whether the retrieved chunks come from the expected sources, then tune top-k if the results are too narrow or noisy.
 
 **Milestone 5 — Generation and interface:** I will use ChatGPT or Claude to help implement the grounded answer generation and a simple query interface. I will give the AI the Evaluation Plan, Architecture section, and a required system prompt that tells the model to answer only from retrieved chunks and cite sources. I expect it to produce a command-line or simple web interface that sends the retrieved chunks to the Groq LLM API and returns an answer with source citations. I will verify it by checking that answers cite the retrieved documents, avoid unsupported claims, and match the expected answers for the five test questions.
