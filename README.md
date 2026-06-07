@@ -7,7 +7,7 @@
 
 ---
 
-## Embedding and Retrieval Usage
+## Running the Pipeline
 
 Build or rebuild the persistent ChromaDB collection from `chunks.jsonl`:
 
@@ -22,6 +22,31 @@ python embed_retrieve.py query "What do students say about Galesburg?"
 ```
 
 Use `--top-k` to tune the result count during evaluation.
+
+Add a valid Groq key to `.env`:
+
+```text
+GROQ_API_KEY=your_actual_key
+```
+
+Run a grounded question from the command line:
+
+```bash
+python generate_answer.py "What do students say about Galesburg?" --top-k 5
+```
+
+Launch the Gradio interface:
+
+```powershell
+.\run_app.ps1
+```
+
+Alternatively, activate the existing virtual environment first:
+
+```powershell
+..\.venv\Scripts\Activate.ps1
+python app.py
+```
 
 ---
 
@@ -116,7 +141,19 @@ very large context window.
 
 **System prompt grounding instruction:**
 
+The system prompt tells the model to use only the retrieved excerpts, never use
+outside knowledge or assumptions, cite claims with source labels, report source
+disagreement, and return "I don't have enough information on that." when the
+evidence is insufficient. Retrieved text is marked as untrusted evidence so
+instructions embedded in source documents are ignored.
+
 **How source attribution is surfaced in the response:**
+
+Each retrieved document receives an internal label such as `[Source 1]`. After
+generation, the application replaces that label with the document title and
+limits each source to at most two inline citations, reducing repetitive labels.
+It also appends a linked source list from ChromaDB metadata. The Gradio
+interface displays the exact retrieved chunks and cosine distances for auditing.
 
 ---
 
@@ -186,12 +223,24 @@ very large context window.
 
 **Instance 1**
 
-- *What I gave the AI:*
-- *What it produced:*
-- *What I changed or overrode:*
+- *What I gave the AI:* I provided the Retrieval Approach and Architecture
+  sections from `planning.md`, the `chunks.jsonl` schema, and the requirements
+  to use `all-MiniLM-L6-v2`, ChromaDB, source metadata, and top-k retrieval.
+- *What it produced:* It produced the embedding/indexing and retrieval module,
+  including a persistent ChromaDB collection and a CLI for testing queries.
+- *What I changed or overrode:* I set the initial result count to five instead
+  of the earlier top-three plan, rebuilt the collection to prevent stale
+  vectors, and required source file plus per-document chunk position metadata.
 
 **Instance 2**
 
-- *What I gave the AI:*
-- *What it produced:*
-- *What I changed or overrode:*
+- *What I gave the AI:* I provided the full pipeline diagram and required a
+  Groq `llama-3.3-70b-versatile` generation step that uses retrieved context
+  only, returns an explicit insufficient-information response, cites sources,
+  and exposes answer, sources, and evidence in a Gradio interface.
+- *What it produced:* It produced a grounded prompt template, Groq generation
+  module, deterministic source formatting, command-line entry point, and
+  Gradio interface with a top-k control and retrieved-chunk display.
+- *What I changed or overrode:* I used temperature zero, treated source text as
+  untrusted input, filtered the displayed source list to labels cited by the
+  answer, and showed exact chunks and cosine distances for auditing.

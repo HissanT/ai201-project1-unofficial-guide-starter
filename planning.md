@@ -136,6 +136,10 @@ ChromaDB cosine similarity search, top-5 chunks initially
      v
 [Generation]
 Groq LLM API, grounded answer with source citations
+     |
+     v
+[Interface]
+Gradio question form, answer, source list, and retrieved chunks
 
 ---
 
@@ -155,4 +159,4 @@ Groq LLM API, grounded answer with source citations
 
 **Milestone 4 — Embedding and retrieval:** I will use ChatGPT or Claude to help implement embeddings and ChromaDB storage. I will give the AI the Retrieval Approach and Architecture sections, including the model name `all-MiniLM-L6-v2`, `sentence-transformers`, `ChromaDB`, and an initial `top-k = 5`. I expect it to produce code that embeds each chunk, stores the chunk text and source metadata in a ChromaDB collection, and retrieves the top 5 chunks for a query. I will verify it by running my five evaluation questions and checking whether the retrieved chunks come from the expected sources, then tune top-k if the results are too narrow or noisy.
 
-**Milestone 5 — Generation and interface:** I will use ChatGPT or Claude to help implement the grounded answer generation and a simple query interface. I will give the AI the Evaluation Plan, Architecture section, and a required system prompt that tells the model to answer only from retrieved chunks and cite sources. I expect it to produce a command-line or simple web interface that sends the retrieved chunks to the Groq LLM API and returns an answer with source citations. I will verify it by checking that answers cite the retrieved documents, avoid unsupported claims, and match the expected answers for the five test questions.
+**Milestone 5 — Generation and interface:** I will use ChatGPT or Claude to help implement grounded generation and a Gradio interface. I will give the AI the Evaluation Plan and full Architecture section, plus the requirement that Groq's `llama-3.3-70b-versatile` answer only from retrieved chunks and say it lacks enough information when the context is insufficient. The requested output format is a grounded answer with inline source labels, followed by a programmatically generated source list; the Gradio skeleton includes a question textbox, top-k slider, submit button, answer panel, source panel, and exact retrieved chunks with distances. I will verify that answers cite retrieved documents, avoid unsupported claims, expose the evidence used, and match the expected answers for the five test questions.

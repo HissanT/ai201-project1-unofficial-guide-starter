@@ -10,7 +10,9 @@ from typing import Any
 
 from embed_retrieve import (
     build_vector_store,
+    embedding_text,
     load_chunks,
+    matching_source_titles,
     prepare_chroma_records,
     retrieve,
 )
@@ -60,6 +62,12 @@ class FakeCollection:
 
     def count(self) -> int:
         return len(self.ids)
+
+    def get(self, **_: Any) -> dict[str, list[Any]]:
+        return {
+            "ids": self.ids,
+            "metadatas": self.metadatas,
+        }
 
     def query(self, **_: Any) -> dict[str, list[list[Any]]]:
         return {
@@ -158,6 +166,39 @@ class EmbedRetrieveTests(unittest.TestCase):
         self.assertEqual(results[0].source_file, "source-a.txt")
         self.assertEqual(results[0].chunk_position, 1)
         self.assertAlmostEqual(results[0].relevance_score, 0.8)
+
+    def test_embedding_text_includes_source_title(self) -> None:
+        searchable = embedding_text(
+            "Review: Very helpful.",
+            {
+                "source_title": "Rate My Professor reviews for David Bunde",
+                "source_type": "RateMyProfessor reviews",
+            },
+        )
+
+        self.assertIn("David Bunde", searchable)
+        self.assertIn("Review: Very helpful.", searchable)
+
+    def test_professor_name_query_matches_rmp_source_metadata(self) -> None:
+        metadatas = [
+            {
+                "source_title": "Rate My Professor reviews for David Bunde",
+                "source_type": "RateMyProfessor reviews",
+            },
+            {
+                "source_title": "Rate My Professor reviews for Shengting Cao",
+                "source_type": "RateMyProfessor reviews",
+            },
+            {
+                "source_title": "Thread about honest opinions about Knox",
+                "source_type": "Reddit thread",
+            },
+        ]
+
+        self.assertEqual(
+            matching_source_titles("How is David Bunde?", metadatas),
+            ["Rate My Professor reviews for David Bunde"],
+        )
 
 
 if __name__ == "__main__":

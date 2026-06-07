@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -119,6 +120,44 @@ def prepare_chroma_records(
     return ids, documents, metadatas
 
 
+def embedding_text(document: str, metadata: dict[str, str | int]) -> str:
+    """Include source identity in embeddings while preserving raw chunk text."""
+    return "\n".join(
+        [
+            f"Source title: {metadata['source_title']}",
+            f"Source type: {metadata['source_type']}",
+            document,
+        ]
+    )
+
+
+def _normalized_words(text: str) -> str:
+    return " ".join(re.findall(r"[a-z0-9]+", text.lower()))
+
+
+def matching_source_titles(
+    query: str,
+    metadatas: Sequence[dict[str, Any]],
+) -> list[str]:
+    """Find RMP source titles whose professor name appears in the query."""
+    normalized_query = f" {_normalized_words(query)} "
+    matches: list[str] = []
+
+    for metadata in metadatas:
+        title = str(metadata.get("source_title", "")).strip()
+        source_type = str(metadata.get("source_type", "")).lower()
+        if "ratemyprofessor" not in source_type or " for " not in title:
+            continue
+
+        professor_name = title.rsplit(" for ", 1)[1].strip()
+        normalized_name = _normalized_words(professor_name)
+        if normalized_name and f" {normalized_name} " in normalized_query:
+            if title not in matches:
+                matches.append(title)
+
+    return matches
+
+
 def load_embedding_model(model_name: str = MODEL_NAME) -> Any:
     """Load the local sentence-transformers embedding model."""
     from sentence_transformers import SentenceTransformer
@@ -180,8 +219,12 @@ def build_vector_store(
         _batches(documents, batch_size),
         _batches(metadatas, batch_size),
     ):
+        searchable_documents = [
+            embedding_text(document, metadata)
+            for document, metadata in zip(document_batch, metadata_batch)
+        ]
         embeddings = model.encode(
-            list(document_batch),
+            searchable_documents,
             batch_size=batch_size,
             show_progress_bar=False,
             normalize_embeddings=True,
@@ -225,10 +268,30 @@ def retrieve(
         show_progress_bar=False,
         normalize_embeddings=True,
     )[0].tolist()
+    stored = collection.get(include=["metadatas"])
+    stored_metadatas = stored.get("metadatas") or []
+    matched_titles = matching_source_titles(query, stored_metadatas)
+    matching_chunk_count = sum(
+        1
+        for metadata in stored_metadatas
+        if metadata.get("source_title") in matched_titles
+    )
+
+    query_options: dict[str, Any] = {
+        "query_embeddings": [query_embedding],
+        "n_results": min(
+            top_k,
+            matching_chunk_count if matched_titles else available_chunks,
+        ),
+        "include": ["documents", "metadatas", "distances"],
+    }
+    if len(matched_titles) == 1:
+        query_options["where"] = {"source_title": matched_titles[0]}
+    elif matched_titles:
+        query_options["where"] = {"source_title": {"$in": matched_titles}}
+
     response = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=min(top_k, available_chunks),
-        include=["documents", "metadatas", "distances"],
+        **query_options,
     )
 
     ids = response["ids"][0]
